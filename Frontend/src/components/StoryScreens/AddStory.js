@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { AuthContext } from "../../Context/AuthContext";
-import { AiOutlineUpload } from 'react-icons/ai'
-import { FiArrowLeft } from 'react-icons/fi'
-import '../../Css/AddStory.css'
+import { AiOutlineUpload } from 'react-icons/ai';
+import { FiArrowLeft } from 'react-icons/fi';
+import '../../Css/AddStory.css';
+const apiURL = process.env.REACT_APP_API_URL;
 
 const AddStory = () => {
 
@@ -36,7 +37,7 @@ const AddStory = () => {
         formdata.append("content", content)
 
         try {
-            const { data } = await axios.post("/story/addstory", formdata, config)
+            const { data } = await axios.post(`${apiURL}/story/addstory`, formdata, config)
             setSuccess('Add story successfully ')
 
             clearInputs()

@@ -1,15 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import Loader from "../GeneralScreens/Loader";
-import { useNavigate, Link } from 'react-router-dom'
-import { FiArrowLeft } from 'react-icons/fi'
-import { AuthContext } from '../../Context/AuthContext'
-import { AiFillLock } from 'react-icons/ai'
-import { BsThreeDots } from 'react-icons/bs'
+import { useNavigate, Link } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
+import { AuthContext } from '../../Context/AuthContext';
+import { AiFillLock } from 'react-icons/ai';
+import { BsThreeDots } from 'react-icons/bs';
 import ReadListStoryItem from '../StoryScreens/ReadListStoryItem';
-
-import '../../Css/ReadListPage.css'
-
+import '../../Css/ReadListPage.css';
+const apiURL = process.env.REACT_APP_API_URL;
 const ReadListPage = () => {
     const navigate = useNavigate();
     const [readList, setReadList] = useState([])
@@ -21,7 +20,7 @@ const ReadListPage = () => {
             setLoading(true)
 
             try {
-                const { data } = await (await axios.get(`/user/readList`, config)).data
+                const { data } = await (await axios.get(`${apiURL}/user/readList`, config)).data
                 setReadList(data)
                 setLoading(false)
             }

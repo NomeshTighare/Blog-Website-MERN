@@ -38,7 +38,7 @@ const Header = () => {
 
                 <Link to="/" className="logo">
                     <h5>
-                        MERN BLOG
+                        Blog App
 
                     </h5>
                 </Link>
@@ -86,8 +86,8 @@ const Header = () => {
                         <div className="noAuth_options">
 
                             <Link className='login-link' to="/login"> Login </Link>
-
-                            <Link className='register-link' to="/register"> Get Started</Link>
+                            <span> | </span>
+                            <Link className='register-link' to="/register"> Register </Link>
                         </div>
 
                     }

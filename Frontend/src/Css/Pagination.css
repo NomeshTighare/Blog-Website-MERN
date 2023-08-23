@@ -20,12 +20,12 @@
 }
 
 .pagination button svg {
-    color: #0063a5;
+    color: #164B60;
     font-size: 1.1rem;
 }
 
 .pagination button:disabled {
-    color: #0063a5;
+    color: #164B60;
     font-weight: bold;
     text-decoration: underline;
     text-underline-offset: 6px;

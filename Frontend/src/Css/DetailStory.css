@@ -73,7 +73,7 @@ li.story-author-info img {
 li.story-author-info span {
     font-family: 'Mukta', sans-serif;
     font-weight: bold;
-    color: #0063a5;
+    color: #164B60;
     margin: 0 6px;
 }
 
@@ -271,6 +271,6 @@ li.story-readtime {
 }
 
 .top_story_transactions span {
-    color: #0063a5;
+    color: #164B60;
     cursor: pointer;
 }

@@ -29,7 +29,7 @@ const StarRating = ({ setStar, setStarCurrentVal, starCurrentVal }) => {
                             className="star"
                             size={21}
                             onClick={() => handleClick(index + 1)}
-                            color={(hoverVal || starCurrentVal) > index ? "#0063a5" : "grey"}
+                            color={(hoverVal || starCurrentVal) > index ? "#164B60" : "grey"}
                             onMouseLeave={handleMouseLeave}
                             onMouseOver={() => handleMouseOver(index + 1)}
                         />

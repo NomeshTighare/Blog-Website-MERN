@@ -4,7 +4,8 @@ import StarRating from './StarRating';
 import { BsShieldCheck, BsCheckAll } from 'react-icons/bs'
 import { IoAdd } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom';
-import '../../Css/AddComment.css'
+import '../../Css/AddComment.css';
+const apiURL = process.env.REACT_APP_API_URL;
 
 const AddComment = ({ setSidebarShowStatus, slug, getStoryComments, activeUser, count }) => {
 
@@ -21,7 +22,7 @@ const AddComment = ({ setSidebarShowStatus, slug, getStoryComments, activeUser, 
 
         e.preventDefault();
         try {
-            await axios.post(`/comment/${slug}/addComment`, { content, star }, {
+            await axios.post(`${apiURL}/comment/${slug}/addComment`, { content, star }, {
                 headers: {
                     "Content-Type": "application/json",
                     authorization: `Bearer ${localStorage.getItem("authToken")}`,

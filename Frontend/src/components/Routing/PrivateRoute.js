@@ -3,6 +3,7 @@ import {Outlet, useNavigate} from 'react-router-dom'
 import Home from '../GeneralScreens/Home';
 import axios from 'axios';
 import { AuthContext } from "../../Context/AuthContext";
+const apiURL = process.env.REACT_APP_API_URL;
 
 const PrivateRoute =( ) => {
     const bool =localStorage.getItem("authToken") ? true :false
@@ -21,7 +22,7 @@ const PrivateRoute =( ) => {
             },
         };
         try {
-            const { data } = await axios.get("/auth/private", config); 
+            const { data } = await axios.get(`${apiURL}/auth/private`, config); 
 
             setAuth(true)
             setActiveUser(data.user)

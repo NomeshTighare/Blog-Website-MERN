@@ -69,17 +69,19 @@ const App = () => {
                                     <Route exact path='/readList' element={<PrivateRoute />}>
                                           <Route exact path='/readList' element={<ReadListPage />} />
                                     </Route>
+                                    
+                                    <Route exact path="/login" element={<LoginScreen />} />
+                                    <Route exact path="/register" element={<RegisterScreen />} />
+
+                                    <Route exact path="/forgotpassword" element={<ForgotPasswordScreen />} />
+
+                                    <Route exact path="/resetpassword" element={<ResetPasswordScreen />} />
+
+
 
                               </Route>
 
-                              <Route exact path="/login" element={<LoginScreen />} />
-                              <Route exact path="/register" element={<RegisterScreen />} />
-
-                              <Route exact path="/forgotpassword" element={<ForgotPasswordScreen />} />
-
-                              <Route exact path="/resetpassword" element={<ResetPasswordScreen />} />
-
-
+                            
                         </Routes>
 
                   </div>
@@ -95,7 +97,7 @@ const LayoutsWithHeader = () => {
             <>
                   <Header />
                   <Outlet />
-                  <Footer />
+                  {/* <Footer /> */}
             </>
       );
 }

@@ -5,7 +5,8 @@ import { AiOutlineUpload } from 'react-icons/ai'
 import Loader from "../GeneralScreens/Loader";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
-import '../../Css/EditProfile.css'
+import '../../Css/EditProfile.css';
+const apiURL = process.env.REACT_APP_API_URL;
 
 const EditProfile = () => {
     const { activeUser, config } = useContext(AuthContext)
@@ -27,7 +28,7 @@ const EditProfile = () => {
         formdata.append("photo", photo)
 
         try {
-            const { data } = await axios.post("/user/editProfile", formdata, config)
+            const { data } = await axios.post(`${apiURL}/user/editProfile`, formdata, config)
 
             setSuccess('Edit Profile successfully ')
             setTimeout(() => {

@@ -3,11 +3,11 @@ import { FaStar } from 'react-icons/fa';
 import {
     MdOutlineWavingHand,
     MdWavingHand
-} from 'react-icons/md'
-import { BsThreeDots } from 'react-icons/bs'
+} from 'react-icons/md';
+import { BsThreeDots } from 'react-icons/bs';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+const apiURL = process.env.REACT_APP_API_URL;
 const CommentItem = ({ comment, activeUser }) => {
     const navigate = useNavigate()
     const [likeCount, setLikeCount] = useState(comment.likeCount)
@@ -19,7 +19,7 @@ const CommentItem = ({ comment, activeUser }) => {
 
             const comment_id = comment._id
             try {
-                const { data } = await axios.post(`/comment/${comment_id}/getCommentLikeStatus`, { activeUser }, {
+                const { data } = await axios.post(`${apiURL}/comment/${comment_id}/getCommentLikeStatus`, { activeUser }, {
                     headers: {
                         "Content-Type": "application/json",
                         authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -50,7 +50,7 @@ const CommentItem = ({ comment, activeUser }) => {
         const comment_id = comment._id
 
         try {
-            const { data } = await axios.post(`/comment/${comment_id}/like`, { activeUser }, {
+            const { data } = await axios.post(`${apiURL}/comment/${comment_id}/like`, { activeUser }, {
                 headers: {
                     "Content-Type": "application/json",
                     authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -119,7 +119,7 @@ const CommentItem = ({ comment, activeUser }) => {
                                     key={index}
                                     className="star"
                                     size={15}
-                                    color={comment.star > index ? "#0205b1" : "grey"}
+                                    color={comment.star > index ? "#164B60" : "grey"}
                                 />
                             )
                         })

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../../Css/ChangePassword.css'
-import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5'
-
+import '../../Css/ChangePassword.css';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
+const apiURL = process.env.REACT_APP_API_URL;
 const ChangePassword = () => {
 
     const [isRevealPass1, setIsRevealPass1] = useState(false)
@@ -30,7 +30,7 @@ const ChangePassword = () => {
 
         try {
             const { data } = await axios.put(
-                "/user/changePassword",
+                `${apiURL}/user/changePassword`,
                 {
                     newPassword,
                     oldPassword

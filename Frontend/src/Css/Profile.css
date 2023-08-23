@@ -15,7 +15,7 @@
 }
 
 .profile-top-wrap span {
-    color: #0063a5;
+    color: #164B60;
     font-family: 'Mukta', sans-serif;
     font-weight: bold;
     font-size: 1.2rem;
@@ -76,8 +76,8 @@
 
 .btns_wrap .profileEditBtn a {
     width: 155px;
-    border: 1px solid #0063a5;
-    color: #0063a5;
+    border: 1px solid #164B60;
+    color: #164B60;
     border-radius: 3px;
     background-color: white;
     height: 45px;
@@ -98,8 +98,8 @@
 .changePassBtn a {
     margin-left: 2rem;
     width: 155px;
-    border: 1px solid #0063a5;
-    background-color: #0063a5;
+    border: 1px solid #164B60;
+    background-color: #164B60;
     border-radius: 3px;
     color: white;
     height: 45px;
@@ -115,5 +115,5 @@
 .changePassBtn a:hover {
     color: white;
     text-decoration: none;
-    background-color: #0063a5;
+    background-color: #164B60;
 }

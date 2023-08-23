@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../../Css/Register.css"
+import "../../Css/Register.css";
+const apiURL = process.env.REACT_APP_API_URL;
 const RegisterScreen = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ const RegisterScreen = () => {
 
     try {
       const { data } = await axios.post(
-        "/auth/register",
+        `${apiURL}/auth/register`,
         {
           username,
           email,
@@ -57,86 +58,53 @@ const RegisterScreen = () => {
 
         <div className="register-banner-section ">
 
-          <img src="register.png" alt="banner" width="490px" />
+          <img src="Mobile-login-pana.png" alt="banner" width="490px" />
         </div>
 
         <div className="section-wrapper">
 
-          <div className="top-suggest_login">
-            <span> Have an account? </span>
-            <a href="/login">Sign In</a>
-          </div>
+         
 
           <div className="top-register-explain">
-            <h2>Welcome to MERN Blog </h2>
-
-            <p>
-              It's easy and free to post your thinking on any topic and connect with thounsands of readers.
-
-            </p>
-
+            <h2>Register</h2>
 
           </div>
 
 
           <form onSubmit={registerHandler} >
             {error && <div className="error_message">{error}</div>}
-            <div className="input-wrapper">
-              <input
-                type="text"
-                required
-                id="name"
-                placeholder="Enter username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <label htmlFor="name">Username</label>
 
+
+            <div className="form-floating mb-3">
+              <input type="name" className="form-control" id="floatingName" placeholder="Enter fullname" value={username}
+                onChange={(e) => setUsername(e.target.value)} required/>
+              <label for="floatingName">Full Name</label>
             </div>
-            <div className="input-wrapper">
-              <input
-                type="email"
-                required
-                id="email"
-                placeholder="example@gmail.com"
-                onChange={(e) => setEmail(e.target.value)}
+
+            <div className="form-floating mb-3">
+              <input type="email" className="form-control" id="floatingEmail" placeholder="Enter email address" onChange={(e) => setEmail(e.target.value)}
                 value={email}
-                tabIndex={1}
-              />
-              <label htmlFor="email">E-mail</label>
-
-
+                tabIndex={1} required></input>
+              <label for="floatingEmail">Email Address</label>
             </div>
-            <div className="input-wrapper">
 
-              <input
-                type="password"
-                required
-                id="password"
-                autoComplete="true"
-                placeholder="6+ strong character"
-                onChange={(e) => setPassword(e.target.value)}
+            <div className="form-floating mb-3">
+              <input type="password" className="form-control" id="floatingPassword1" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)}
                 value={password}
-                tabIndex={2}
-              />
-              <label htmlFor="password">
-                Password
-
-              </label>
+                tabIndex={2}></input>
+              <label for="floatingPassword1">Password</label>
             </div>
-            <div className="input-wrapper">
-
-              <input
-                type="password"
-                required
-                id="confirmpassword"
-                autoComplete="true"
-                placeholder="Confirm password"
-                value={confirmpassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-              <label htmlFor="confirmpassword">Confirm Password</label>
+            
+            <div className="form-floating mb-2">
+              <input type="password" className="form-control" id="floatingPassword2" placeholder="Enter confirm password" o value={confirmpassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}></input>
+              <label for="floatingPassword2">Confirm Password</label>
             </div>
+
+            <div className="top-suggest_login">
+            <span> Have an account? </span>
+            <a href="/login">Sign In</a>
+          </div>
 
             <button type="submit" >
               Register

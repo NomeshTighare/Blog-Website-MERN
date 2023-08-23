@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import "../../Css/Login.css"
 import { Link, useNavigate } from "react-router-dom";
+const apiURL = process.env.REACT_APP_API_URL;
+
+
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +17,7 @@ const LoginScreen = () => {
 
     try {
       const { data } = await axios.post(
-        "/auth/login",
+        `${apiURL}/auth/login`,
         { email, password }
       );
       localStorage.setItem("authToken", data.token);
@@ -39,61 +42,42 @@ const LoginScreen = () => {
     <div className="Inclusive-login-page">
 
       <div className="login-big-wrapper">
+        <div className="login-banner-section ">
 
+          <img src="Mobile-login-rafiki.png" alt="banner" width="400px" />
+        </div>
         <div className="section-wrapper">
-
-          <div className="top-suggest_register">
-
-            <span>Don't have an account? </span>
-            <a href="/register">Sign Up</a>
-
-          </div>
-
+          
           <div className="top-login-explain">
-            <h2>Login to Your Account </h2>
-
+            <h2>Login</h2>
             <p>
               Please Login Your Account, Thank You!
             </p>
-
-
           </div>
-
 
           <form onSubmit={loginHandler} >
             {error && <div className="error_message">{error}</div>}
-            <div className="input-wrapper">
-              <input
-                type="email"
-                required
-                id="email"
-                placeholder="example@gmail.com"
-                onChange={(e) => setEmail(e.target.value)}
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="Enter email address" onChange={(e) => setEmail(e.target.value)}
                 value={email}
-                tabIndex={1}
-              />
-              <label htmlFor="email">E-mail</label>
-
+                tabIndex={1} required></input>
+              <label for="floatingInput">Email address</label>
             </div>
-            <div className="input-wrapper">
-
-              <input
-                type="password"
-                required
-                id="password"
-                autoComplete="true"
-                placeholder="6+ strong character"
-                onChange={(e) => setPassword(e.target.value)}
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" onChange={(e) => setPassword(e.target.value)}
                 value={password}
-                tabIndex={2}
-              />
-              <label htmlFor="password">
-                Password
-
-              </label>
+                tabIndex={2} placeholder="Enter Password"></input>
+              <label for="floatingPassword">Password</label>
             </div>
-            <Link to="/forgotpassword" className="login-screen__forgotpassword"> Forgot Password ?
-            </Link>
+
+            <div className="top-suggest_register">
+
+              <span>Don't have an account? </span>
+              <a href="/register">Sign Up</a>
+              <span>  <Link to="/forgotpassword" className="login-screen__forgotpassword"> Forgot Password ?
+              </Link></span>
+            </div>
+
             <button type="submit" >
               Login
             </button>
@@ -103,10 +87,7 @@ const LoginScreen = () => {
 
         </div>
 
-        <div className="login-banner-section ">
 
-          <img src="login.png" alt="banner" width="400px" />
-        </div>
 
       </div>
 

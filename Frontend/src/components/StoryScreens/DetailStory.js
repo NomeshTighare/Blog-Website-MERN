@@ -1,14 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import "../../Css/DetailStory.css"
+import "../../Css/DetailStory.css";
 import Loader from '../GeneralScreens/Loader';
-import { FaRegHeart, FaHeart } from 'react-icons/fa'
-import { RiDeleteBin6Line } from 'react-icons/ri'
-import { FiEdit, FiArrowLeft } from 'react-icons/fi'
-import { FaRegComment } from 'react-icons/fa'
-import { BsBookmarkPlus, BsThreeDots, BsBookmarkFill } from 'react-icons/bs'
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { FiEdit, FiArrowLeft } from 'react-icons/fi';
+import { FaRegComment } from 'react-icons/fa';
+import { BsBookmarkPlus, BsThreeDots, BsBookmarkFill } from 'react-icons/bs';
 import CommentSidebar from '../CommentScreens/CommentSidebar';
+const apiURL = process.env.REACT_APP_API_URL;
 
 const DetailStory = () => {
   const [likeStatus, setLikeStatus] = useState(false)
@@ -28,7 +29,7 @@ const DetailStory = () => {
       setLoading(true)
       var activeUser = {}
       try {
-        const { data } = await axios.get("/auth/private", {
+        const { data } = await axios.get(`${apiURL}/auth/private`, {
           headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -44,7 +45,7 @@ const DetailStory = () => {
       }
 
       try {
-        const { data } = await axios.post(`/story/${slug}`, { activeUser })
+        const { data } = await axios.post(`${apiURL}/story/${slug}`, { activeUser })
         setStory(data.data)
         setLikeStatus(data.likeStatus)
         setLikeCount(data.data.likeCount)
@@ -84,7 +85,7 @@ const DetailStory = () => {
     }, 1500)
 
     try {
-      const { data } = await axios.post(`/story/${slug}/like`, { activeUser }, {
+      const { data } = await axios.post(`${apiURL}/story/${slug}/like`, { activeUser }, {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -109,7 +110,7 @@ const DetailStory = () => {
 
       try {
 
-        await axios.delete(`/story/${slug}/delete`, {
+        await axios.delete(`${apiURL}/story/${slug}/delete`, {
           headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -139,7 +140,7 @@ const DetailStory = () => {
 
     try {
 
-      const { data } = await axios.post(`/user/${slug}/addStoryToReadList`, { activeUser }, {
+      const { data } = await axios.post(`${apiURL}/user/${slug}/addStoryToReadList`, { activeUser }, {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -251,13 +252,13 @@ const DetailStory = () => {
 
                       <i onClick={handleLike} >
 
-                        {likeStatus ? <FaHeart color="#0063a5" /> :
+                        {likeStatus ? <FaHeart color="#164B60" /> :
                           <FaRegHeart />
                         }
                       </i>
 
                       <b className='likecount'
-                        style={likeStatus ? { color: "#0063a5" } : { color: "rgb(99, 99, 99)" }}
+                        style={likeStatus ? { color: "#164B60" } : { color: "rgb(99, 99, 99)" }}
                       >  {likeCount}
                       </b>
 
@@ -281,7 +282,7 @@ const DetailStory = () => {
                     <li>
                       <i onClick={addStoryToReadList}>
 
-                        {storyReadListStatus ? <BsBookmarkFill color='#0205b1' /> :
+                        {storyReadListStatus ? <BsBookmarkFill color='#164B60' /> :
                           <BsBookmarkPlus />
                         }
                       </i>

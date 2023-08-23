@@ -7,8 +7,8 @@ import CardStory from "../StoryScreens/CardStory";
 import NoStories from "../StoryScreens/NoStories";
 import Pagination from "./Pagination";
 import "../../Css/Home.css"
-
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+const apiURL = process.env.REACT_APP_API_URL;
 const Home = () => {
   const search = useLocation().search
   const searchKey = new URLSearchParams(search).get('search')
@@ -25,7 +25,7 @@ const Home = () => {
       setLoading(true)
       try {
 
-        const { data } = await axios.get(`/story/getAllStories?search=${searchKey || ""}&page=${page}`)
+        const { data } = await axios.get(`${apiURL}/story/getAllStories?search=${searchKey || ""}&page=${page}`)
 
         if (searchKey) {
           navigate({
@@ -83,9 +83,9 @@ const Home = () => {
                 )
               }) : <NoStories />
             }
-            <img className="bg-planet-svg" src="planet.svg" alt="planet" />
+            {/* <img className="bg-planet-svg" src="planet.svg" alt="planet" />
             <img className="bg-planet2-svg" src="planet2.svg" alt="planet" />
-            <img className="bg-planet3-svg" src="planet3.svg" alt="planet" />
+            <img className="bg-planet3-svg" src="planet3.svg" alt="planet" /> */}
 
           </div>
 
