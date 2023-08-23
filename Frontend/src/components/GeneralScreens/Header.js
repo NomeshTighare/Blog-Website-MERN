@@ -8,7 +8,7 @@ import { BiLogOut } from 'react-icons/bi'
 import { BsBookmarks } from 'react-icons/bs'
 import SkeletonElement from '../Skeletons/SkeletonElement';
 import { AuthContext } from '../../Context/AuthContext';
-
+const apiURL = process.env.REACT_APP_API_URL;
 const Header = () => {
     const bool = localStorage.getItem("authToken") ? true : false
     const [auth, setAuth] = useState(bool)
@@ -65,7 +65,7 @@ const Header = () => {
 
                                     :
 
-                                    <img src={`/userPhotos/${activeUser.photo}`} alt={activeUser.username} />
+                                    <img src={`${apiURL}/userPhotos/${activeUser.photo}`} alt={activeUser.username} />
 
                                 }
 

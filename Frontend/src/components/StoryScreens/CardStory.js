@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+const apiURL = process.env.REACT_APP_API_URL;
 const Story = ({ story }) => {
 
     const editDate = (createdAt) => {
@@ -26,7 +26,7 @@ const Story = ({ story }) => {
         <div className="story-card">
             <Link to={`/story/${story.slug}`} className="story-link">
 
-                <img className=" story-image" src={`/storyImages/${story.image}`} alt={story.title} />
+                <img className=" story-image" src={`${apiURL}/storyImages/${story.image}`} alt={story.title} />
                 <div className="story-content-wrapper">
 
                     <h5 className="story-title">
