@@ -99,6 +99,7 @@ const AddStory = () => {
                     <input
                         name="image"
                         type="file"
+                        accept='image/heic, image/heif, image/jpeg, image/png, image/gif, image/webp, image/svg+xml, image/apng, image/bmp, image/avif'
                         ref={imageEl}
                         onChange={(e) => {
                             setImage(e.target.files[0])

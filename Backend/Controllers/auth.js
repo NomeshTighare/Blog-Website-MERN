@@ -18,17 +18,32 @@ const getPrivateData = asyncErrorWrapper((req,res,next) =>{
 
 const register = asyncErrorWrapper (async  (req,res,next) => {
 
-    const { username,email , password} = req.body  ;
-    
-    const newUser = await User.create({
-        username,
-        email,
-        password
-    })
-    
-    sendToken(newUser ,201,res)
-  
+    const { username, email, password} = req.body;
 
+    var emailId = req.body.email.toLowerCase();
+
+    const data = await userModel.findOne({ email: emailId });
+
+    if (data) {
+        return next(new CustomError("Email already exists", 400));
+    }
+    else if (password.length < 6) {
+        return next(new CustomError("Password must be at least 6 characters", 400));
+    }
+    else{
+        const newUser = await User.create({
+            username,
+            email,
+            password
+        })
+        
+        sendToken(newUser ,201,res.json({
+            success : 1,
+            message: "Account create successfully. Please login",
+            data : newUser
+            })
+        )
+    }
 })
 
 const login  = asyncErrorWrapper (async(req,res,next) => {
@@ -40,7 +55,9 @@ const login  = asyncErrorWrapper (async(req,res,next) => {
         return next(new CustomError("Please check your inputs",400))
     }
 
-    const user = await User.findOne({email}).select("+password")
+    var emailAddress = req.body.email.toLowerCase()
+
+    const user = await User.findOne({email: emailAddress}).select("+password")
 
     if(!user) {
         
@@ -51,7 +68,11 @@ const login  = asyncErrorWrapper (async(req,res,next) => {
         return next(new CustomError("Please chech your credentails",404))
     }
 
-    sendToken(user ,200,res)  ;
+    sendToken(user ,200,res.json({
+        success : 1,
+        message: "Login successfull",
+        data : user
+        }))  ;
     
 })
 
@@ -113,7 +134,7 @@ const forgotpassword  = asyncErrorWrapper( async (req,res,next) => {
 })
 
 
-const resetpassword  =asyncErrorWrapper(  async (req,res,next) => {
+const resetpassword  = asyncErrorWrapper(  async (req,res,next) => {
 
     const newPassword = req.body.newPassword || req.body.password
 
