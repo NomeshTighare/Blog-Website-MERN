@@ -26,9 +26,11 @@ const register = asyncErrorWrapper (async  (req,res,next) => {
 
     if (data) {
         return next(new CustomError("Email already exists", 400));
+
     }
     else if (password.length < 6) {
         return next(new CustomError("Password must be at least 6 characters", 400));
+
     }
     else{
         const newUser = await User.create({
@@ -39,7 +41,7 @@ const register = asyncErrorWrapper (async  (req,res,next) => {
         
         sendToken(newUser ,201,res.json({
             success : 1,
-            message: "Account create successfully. Please login",
+            message: "Account create successfully.",
             data : newUser
             })
         )
