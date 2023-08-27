@@ -34,6 +34,7 @@ const RegisterScreen = () => {
       );
 
       localStorage.setItem("authToken", data.token);
+      console.log("localstorage", localStorage.getItem("authToken"));
 
       setTimeout(() => {
         navigate('/');
@@ -63,7 +64,7 @@ const RegisterScreen = () => {
 
         <div className="section-wrapper">
 
-         
+
 
           <div className="top-register-explain">
             <h2>Register</h2>
@@ -76,35 +77,32 @@ const RegisterScreen = () => {
 
 
             <div className="form-floating mb-3">
-              <input type="name" className="form-control" id="floatingName" placeholder="Enter fullname" value={username}
-                onChange={(e) => setUsername(e.target.value)} required/>
-              <label for="floatingName">Full Name</label>
+              <input type="name" className="form-control" id="username" placeholder="Enter fullname" value={username}
+                onChange={(e) => setUsername(e.target.value)} tabIndex={1} required />
+              <label for="username">Full Name</label>
             </div>
 
             <div className="form-floating mb-3">
-              <input type="email" className="form-control" id="floatingEmail" placeholder="Enter email address" onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                tabIndex={1} required></input>
-              <label for="floatingEmail">Email Address</label>
+              <input type="email" className="form-control" id="emailaddress" placeholder="Enter email address" value={email}
+                onChange={(e) => setEmail(e.target.value)} tabIndex={2} required></input>
+              <label for="emailaddress">Email Address</label>
             </div>
 
             <div className="form-floating mb-3">
-              <input type="password" className="form-control" id="floatingPassword1" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                tabIndex={2}></input>
-              <label for="floatingPassword1">Password</label>
+              <input type="password" className="form-control" id="passwordNew" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} tabIndex={3}></input>
+              <label for="passwordNew">Password</label>
             </div>
-            
+
             <div className="form-floating mb-2">
-              <input type="password" className="form-control" id="floatingPassword2" placeholder="Enter confirm password" o value={confirmpassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}></input>
-              <label for="floatingPassword2">Confirm Password</label>
+              <input type="password" className="form-control" id="passwordConfirm" placeholder="Enter confirm password" value={confirmpassword}
+                onChange={(e) => setConfirmPassword(e.target.value)} tabIndex={4} ></input>
+              <label for="passwordConfirm">Confirm Password</label>
             </div>
 
             <div className="top-suggest_login">
-            <span> Have an account? </span>
-            <a href="/login">Sign In</a>
-          </div>
+              <span> Have an account? </span>
+              <a href="/login">Sign In</a>
+            </div>
 
             <button type="submit" >
               Register

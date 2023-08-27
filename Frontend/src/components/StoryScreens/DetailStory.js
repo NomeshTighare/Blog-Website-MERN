@@ -35,6 +35,7 @@ const DetailStory = () => {
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },
         });
+        console.log(data.user);
         activeUser = data.user
 
         setActiveUser(activeUser)

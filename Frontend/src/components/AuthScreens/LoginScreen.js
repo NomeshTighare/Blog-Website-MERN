@@ -22,6 +22,8 @@ const LoginScreen = () => {
       );
       localStorage.setItem("authToken", data.token);
 
+      console.log("localstorage", localStorage.getItem("authToken"));
+
       setTimeout(() => {
 
         navigate("/")

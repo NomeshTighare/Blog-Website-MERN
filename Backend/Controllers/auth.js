@@ -33,7 +33,7 @@ const register = asyncErrorWrapper (async  (req,res,next) => {
     else{
         const newUser = await User.create({
             username,
-            email,
+            emailId,
             password
         })
         

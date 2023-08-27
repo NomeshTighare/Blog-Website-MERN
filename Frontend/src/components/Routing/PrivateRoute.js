@@ -21,6 +21,8 @@ const PrivateRoute =( ) => {
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
             },
         };
+
+        console.log(config);
         try {
             const { data } = await axios.get(`${apiURL}/auth/private`, config); 
 

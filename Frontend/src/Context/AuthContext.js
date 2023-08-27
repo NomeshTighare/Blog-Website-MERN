@@ -13,7 +13,7 @@ const AuthContextProvider = props => {
     },
   })
 
-
+  console.log(config);
   useEffect(() => {
 
     const controlAuth = async () => {
