@@ -23,17 +23,16 @@
     width: 100%;
     height: 55px;
     outline: 0;
-    border: none;
     border: rgb(235, 235, 235) solid 1px;
     font-size: 1.4rem;
     padding-left: 1rem;
     font-weight: 450;
-    font-family: 'Balsamiq Sans', cursive;
-    border-bottom: none;
+    border-radius: 3px;
 }
 
 .ck-editor {
     margin-bottom: 1rem !important;
+    margin-top: 1rem !important;
 }
 
 @media only screen and (max-width: 651px) {
@@ -47,6 +46,7 @@
 
 .ck-editor__top * {
     border: none !important;
+    
 }
 
 .ck-editor__top {
@@ -76,14 +76,13 @@
 .StoryImageField {
     border: rgb(235, 235, 235) solid 1px;
     width: 100%;
-    height: 240px;
+    height: 100%;
     border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     cursor: pointer;
-    margin-top: 1rem;
     position: relative;
 }
 
@@ -93,9 +92,9 @@
 }
 
 .StoryImageField .txt {
-    width: 350px;
+    width: 100%;
     height: auto;
-    margin-top: 14px;
+    margin: 14px;
     text-align: center;
     color: rgba(0, 0, 0, 0.7);
 }

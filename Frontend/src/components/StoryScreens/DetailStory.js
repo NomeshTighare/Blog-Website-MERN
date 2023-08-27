@@ -26,7 +26,7 @@ const DetailStory = () => {
   useEffect(() => {
 
     const getDetailStory = async () => {
-      setLoading(true)
+      // setLoading(true)
       var activeUser = {}
       try {
         const { data } = await axios.get(`${apiURL}/auth/private`, {
@@ -47,13 +47,18 @@ const DetailStory = () => {
 
       try {
         const { data } = await axios.post(`${apiURL}/story/${slug}`, { activeUser })
+        console.log("story_id", data.data._id);
+        console.log("blog data", data);
         setStory(data.data)
         setLikeStatus(data.likeStatus)
         setLikeCount(data.data.likeCount)
         setStoryLikeUser(data.data.likes)
-        setLoading(false)
+
+    
 
         const story_id = data.data._id;
+        console.log("story_id", story_id);
+        setLoading(false);
 
         if (activeUser.readList) {
 
@@ -290,12 +295,11 @@ const DetailStory = () => {
                     </li>
 
                     <li className='BsThreeDots_opt'>
-                      <i  >
+                      <i>
                         <BsThreeDots />
                       </i>
 
-                      {activeUser &&
-                        story.author._id === activeUser._id ?
+                      {activeUser ?
                         <div className="delete_or_edit_story  ">
                           <Link className='editStoryLink' to={`/story/${story.slug}/edit`}>
                             <p>Edit Story</p>

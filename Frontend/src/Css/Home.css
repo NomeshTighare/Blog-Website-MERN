@@ -28,17 +28,17 @@
 .story-card-wrapper {
     position: relative;
     min-height: 850px;
-    width: 1050px;
+    width: 100%;
     margin: 1.2rem auto;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
 .story-card {
-    width: 30%;
+    width: 40%;
     position: relative;
-    height: 460px;
+    height: 500px;
     border-radius: 6px;
     margin: 2rem 1rem;
     border: 1px solid rgba(121, 118, 118, 0.3);
@@ -97,12 +97,10 @@
     font-weight: bold;
     margin-bottom: 1.2rem;
     word-wrap: break-word;
-    font-family: 'Hammersmith One', sans-serif;
-    font-family: 'Londrina Solid', cursive;
 }
 
 .story-card .story-text {
-    height: 55px;
+    height: 80px;
     overflow: hidden;
     word-wrap: break-word;
 }

@@ -62,7 +62,7 @@ const AddStory = () => {
             <Link to={'/'} >
                 <FiArrowLeft />
             </Link>
-            <form onSubmit={handleSubmit} className="addStory-form">
+            <form onSubmit={handleSubmit} className="addStory-form" >
 
                 {error && <div className="error_msg">{error}</div>}
                 {success && <div className="success_msg">
@@ -71,6 +71,8 @@ const AddStory = () => {
                     </span>
                     <Link to="/">Go home</Link>
                 </div>}
+
+            
 
                 <input
                     type="text"
@@ -83,17 +85,19 @@ const AddStory = () => {
 
                 <CKEditor
                     editor={ClassicEditor}
+                    placeholder="Content"
                     onChange={(e, editor) => {
                         const data = editor.getData();
                         setContent(data)
                     }}
                     ref={editorEl}
                 />
+
                 <div class="StoryImageField">
                     <AiOutlineUpload />
                     <div class="txt">
                         {image ? image.name :
-                            " Include a high-quality image in your story to make it more inviting to readers."
+                            "Upload High Quality Image"
                         }
                     </div>
                     <input

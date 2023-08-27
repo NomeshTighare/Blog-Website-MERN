@@ -14,7 +14,7 @@ const addNewCommentToStory  =asyncErrorWrapper(async(req,res,next)=> {
 
         story :story._id ,
         content :content ,
-        author : req.user.id ,
+        author : req.user.id,
         star:star 
     })
 

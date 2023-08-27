@@ -13,7 +13,7 @@ const Story = ({ story }) => {
     }
 
     const truncateContent = (content) => {
-        const trimmedString = content.substr(0, 73);
+        const trimmedString = content.substr(0, 140);
         return trimmedString
     }
     const truncateTitle= (title) => {

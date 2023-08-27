@@ -75,7 +75,7 @@ const detailStory =asyncErrorWrapper(async(req,res,next)=>{
     const storyLikeUserIds = story.likes.map(json => json.id)
     const likeStatus = storyLikeUserIds.includes(activeUser._id)
 
-
+    console.log("story",story);
     return res.status(200).
         json({
             success:true,
@@ -120,11 +120,14 @@ const likeStory =asyncErrorWrapper(async(req,res,next)=>{
 })
 
 const editStoryPage  =asyncErrorWrapper(async(req,res,next)=>{
+    console.log("edit story page");
     const {slug } = req.params ; 
    
     const story = await Story.findOne({
         slug: slug 
     }).populate("author likes")
+
+    console.log("story edit ",story);
 
     return res.status(200).
         json({
