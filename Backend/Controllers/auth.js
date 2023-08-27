@@ -39,12 +39,7 @@ const register = asyncErrorWrapper (async  (req,res,next) => {
             password
         })
         
-        sendToken(newUser ,201,res.json({
-            success : 1,
-            message: "Account create successfully.",
-            data : newUser
-            })
-        )
+        sendToken(newUser ,201,res)
     }
 })
 
@@ -70,11 +65,7 @@ const login  = asyncErrorWrapper (async(req,res,next) => {
         return next(new CustomError("Please chech your credentails",404))
     }
 
-    sendToken(user ,200,res.json({
-        success : 1,
-        message: "Login successfull",
-        data : user
-        }))  ;
+    sendToken(user ,200,res)  ;
     
 })
 

@@ -15,13 +15,17 @@ const getAccessTokenFromHeader = (req) => {
     return access_token
 }
 
+
 const sendToken = (user,statusCode ,res)=>{
 
     const token = user.generateJwtFromUser()
 
     return res.status(statusCode).json({
-        success: true ,
-        token
+        success: 1,
+        token,
+        data : user,
+        message : "Login Successfull"
+        
     })
 
 }
