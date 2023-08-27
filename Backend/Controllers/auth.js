@@ -22,7 +22,7 @@ const register = asyncErrorWrapper (async  (req,res,next) => {
 
     var emailId = req.body.email.toLowerCase();
 
-    const data = await userModel.findOne({ email: emailId });
+    const data = await User.findOne({ email: emailId });
 
     if (data) {
         return next(new CustomError("Email already exists", 400));
