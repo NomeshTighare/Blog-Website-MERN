@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "../../Css/Login.css"
 import { Link, useNavigate } from "react-router-dom";
+
 const apiURL = process.env.REACT_APP_API_URL;
 
 
@@ -20,6 +21,7 @@ const LoginScreen = () => {
         `${apiURL}/auth/login`,
         { email, password }
       );
+      console.log("login data", data);
       localStorage.setItem("authToken", data.token);
 
       console.log("localstorage", localStorage.getItem("authToken"));
