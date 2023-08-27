@@ -31,9 +31,10 @@ const register = asyncErrorWrapper (async  (req,res,next) => {
         return next(new CustomError("Password must be at least 6 characters", 400));
     }
     else{
+        email = req.body.email.toLowerCase();
         const newUser = await User.create({
             username,
-            emailId,
+            email,
             password
         })
         
