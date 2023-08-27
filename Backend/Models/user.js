@@ -73,6 +73,7 @@ UserSchema.methods.generateJwtFromUser  = function(){
     }
 
     const token = jwt.sign(payload ,JWT_SECRET_KEY, {expiresIn :JWT_EXPIRE} )
+    console.log("token",token);
 
     return token 
 }
