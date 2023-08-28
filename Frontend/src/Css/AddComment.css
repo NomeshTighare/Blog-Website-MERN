@@ -121,7 +121,7 @@
 }
 
 .formBtn-wrapper .respond-Btn {
-    background-color: rgb(0, 150, 0);
+    background-color: #164B60;
     border: none;
     padding: 6px 10px;
     border-radius: 7px;
@@ -138,7 +138,7 @@
 }
 
 .formBtn-wrapper .respond-Btn:hover {
-    background-color: green;
+    background-color: #164B60;
 }
 
 .StarRating-wrapper svg {
@@ -153,7 +153,7 @@
     font-size: 0.8rem;
     z-index: 5;
     font-weight: bold;
-    color: rgb(0, 102, 0);
+    color: #164B60;
     padding: 3px 6px;
     background-color: rgba(185, 185, 185, 0.2);
 }

@@ -172,7 +172,7 @@ const DetailStory = () => {
 
               <div className="top_detail_wrapper">
                 <Link to={'/'} >
-                  <FiArrowLeft />
+                  <FiArrowLeft style={{color : "#164B60" , fontSize: 25, marginBottom :20}} />
                 </Link>
                 <h5>{story.title}</h5>
 
@@ -302,10 +302,10 @@ const DetailStory = () => {
                       {activeUser ?
                         <div className="delete_or_edit_story  ">
                           <Link className='editStoryLink' to={`/story/${story.slug}/edit`}>
-                            <p>Edit Story</p>
+                            <p>Edit Blog</p>
                           </Link>
                           <div className='deleteStoryLink' onClick={handleDelete}>
-                            <p>Delete Story</p>
+                            <p>Delete Blog</p>
                           </div>
                         </div> : null
                       }

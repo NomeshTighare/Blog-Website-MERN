@@ -130,7 +130,7 @@ const EditStory = () => {
                             </div>
 
                             <button type='submit' className='editStory-btn'
-                            >Edit Story </button>
+                            >Edit Blog </button>
                         </form>
 
                     </div>

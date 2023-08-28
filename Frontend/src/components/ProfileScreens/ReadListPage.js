@@ -48,7 +48,7 @@ const ReadListPage = () => {
 
                 <div className="Inclusive-readList-page">
                     <Link to={'/'} >
-                        <FiArrowLeft />
+                        <FiArrowLeft style={{color : "#164B60" , fontSize: 25, marginBottom :20}} />
                     </Link>
                     <h2>Reading List </h2>
 

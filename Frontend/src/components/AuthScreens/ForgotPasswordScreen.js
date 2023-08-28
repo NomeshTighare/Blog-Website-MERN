@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../Css/ForgotPassword.css";
-import { BsArrowBarLeft } from 'react-icons/bs';
+import { FiArrowLeft } from 'react-icons/fi';
 const apiURL = process.env.REACT_APP_API_URL;
 const ForgotPasswordScreen = () => {
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ const ForgotPasswordScreen = () => {
 
       <div className="forgotPassword-big-wrapper">
         <Link to="/" className="back_home">
-          <BsArrowBarLeft />
+        <FiArrowLeft style={{color : "#164B60" , fontSize: 25, marginBottom :20}} />
         </Link>
         <form
           onSubmit={forgotPasswordHandler}
@@ -41,8 +41,7 @@ const ForgotPasswordScreen = () => {
           <div className="top-forgotpassword-explain">
             <h3 >Forgot Password</h3>
             <p >
-              Please enter the email address you register your account with. We
-              will send you reset password confirmation to this email
+            Enter the email address you used to set up your account. We will give you confirmation of your new password to this email.
             </p>
           </div>
 

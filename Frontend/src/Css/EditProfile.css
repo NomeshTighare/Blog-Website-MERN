@@ -155,7 +155,7 @@
     width: 100%;
     border-radius: 8px;
     margin-bottom: 1.5rem;
-    background-color: rgba(14, 218, 75, 0.9);
+    background-color: #164B60;
     color: white;
     padding: 8px;
     font-size: 0.9rem;
@@ -163,7 +163,7 @@
 }
 
 .Inclusive-editprofile-page form .success_msg a {
-    color: black;
+    color: white;
     font-weight: bold;
     padding-left: 1rem;
 }

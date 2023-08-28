@@ -38,7 +38,7 @@ const AddStory = () => {
 
         try {
             const { data } = await axios.post(`${apiURL}/story/addstory`, formdata, config)
-            setSuccess('Add story successfully ')
+            setSuccess('Add blog successfully ')
 
             clearInputs()
             setTimeout(() => {
@@ -60,7 +60,8 @@ const AddStory = () => {
 
         <div className="Inclusive-addStory-page ">
             <Link to={'/'} >
-                <FiArrowLeft />
+                <FiArrowLeft style={{color : "#164B60" , fontSize: 25, marginBottom :20}} />
+            
             </Link>
             <form onSubmit={handleSubmit} className="addStory-form" >
 
