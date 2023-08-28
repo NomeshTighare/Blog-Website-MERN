@@ -60,7 +60,7 @@ const DetailStory = () => {
         console.log("story_id", story_id);
         setLoading(false);
 
-        if (activeUser.readList) {
+        if (activeUser.readList ) {
 
           if (!activeUser.readList.includes(story_id)) {
             setStoryReadListStatus(false)
@@ -298,8 +298,7 @@ const DetailStory = () => {
                       <i>
                         <BsThreeDots />
                       </i>
-
-                      {activeUser ?
+                      {activeUser && story.author._id == activeUser._id ?
                         <div className="delete_or_edit_story  ">
                           <Link className='editStoryLink' to={`/story/${story.slug}/edit`}>
                             <p>Edit Blog</p>
